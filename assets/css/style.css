@@ -1,0 +1,72 @@
+/* 
+Correct visualization of the image depending in the media width
+____
+	Media query to target most of smartphone
+	https://stackoverflow.com/questions/14224913/media-query-to-target-most-of-smartphone
+____
+Get the @media from Bootstrap 
+*/
+html {
+  box-sizing: border-box; }
+
+*, *:before, *:after {
+  box-sizing: inherit; }
+
+/* Galaxy S5 */
+@media (min-width: 320px) and (max-width: 575px) {
+  .img {
+    background-image: url('../images/mipmap-hdpi/ic_launcher.png');
+    background-repeat: no-repeat;
+    background-position: 50% 110%;
+  }
+}
+
+@media (min-width: 576px) and (max-width: 767px) {
+  .img {
+    background-image: url('../images/mipmap-mdpi/ic_launcher.png');
+    background-repeat: no-repeat;
+    background-position: 10%;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .img {
+    background-image: url('../images/mipmap-xhdpi/ic_launcher.png');
+    background-repeat: no-repeat;
+    background-position: 20% 50%;
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+  .img {
+    background-image: url('../images/mipmap-xxhdpi/ic_launcher.png');
+    background-repeat: no-repeat;
+    background-position: 20% 50%;
+  }
+}
+
+@media (min-width: 1200px) {
+  .img {
+    background-image: url('../images/mipmap-xxxhdpi/ic_launcher.png');
+    background-repeat: no-repeat;
+    background-position: 20% 50%;
+    background-size: 20% 60%;
+  }
+}
+
+/* Correctiong: Header content getting cut off in jQuery Mobile*/
+.ui-title {
+	white-space:normal
+}
+
+/* CSS for movie records*/
+.film-row {
+    display: flex;
+    flex-direction: row;
+    padding: 10vw;
+    justify-content: center;
+}
+.film-text-container {
+    display: flex;
+    flex-direction: column;
+}

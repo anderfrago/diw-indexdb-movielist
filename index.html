@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>jQuery Mobile Application</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="assets/css/jquery.mobile-1.4.5.min.css">
+    <script src="assets/js/jquery-1.11.1.min.js"></script>
+    <script src="assets/js/jquery.mobile-1.4.5.min.js"></script>
+</head>
+
+<body>
+
+    <!-- start: Access to application -->
+    <section id="pgMenu" data-role="page">
+        <header data-role="header" data-theme="b">
+            <h1>Yo quiero ver eso</h1>
+        </header>
+        <div class="ui-content" data-theme="a">
+            <div class="film-row img">
+                <div class="film-text-container ">
+                    <h3> Recordatorio de tus peliculas <i><br />indispensables</i> </h3>
+                </div>
+            </div>
+            <div class="film-row">
+                <ul data-role="listview" data-inset="true" data-theme="b">
+                    <li class="ui-btn ui-btn-icon-right ui-icon-carat-r">
+                        <a href="#pgMovieList">Mi lista de películas</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <footer data-role="footer" data-position="fixed" data-theme="b" class="center-wrapper">
+            <h1>Cuatrovientos</h1>
+        </footer>
+    </section>
+    <!-- end: Access to application -->
+
+    <!-- start: Movie list -->
+    <section id="pgMovieList" data-role="page">
+        <!-- start: Left side panel -->
+        <div id="pgMovieLeftPnl" data-role="panel" data-position="left" data-display="overlay"
+            data-position-fixed="true">
+            <ul id="pgMovieLeftPnlLV" data-role="listview">
+                <li><a href="#pgMenu" data-transition="slide" class="ui-btn ui-icon-carat-l ui-btn-icon-left">Volver</a>
+                </li>
+                <li><a id="pgMovieNew" href="#pgAddMovie" data-role="button" data-icon="plus" data-theme="b">Nueva</a>
+                </li>
+            </ul>
+        </div>
+        <!-- end: Left side panel -->
+
+        <header id="pgMovieHdr" data-role="header" data-position="fixed" data-tap-toggle="false">
+            <h1>Mi lista de películas</h1>
+            <a id="pgMovieMenu" href="#pgMovieLeftPnl" class="ui-btn ui-icon-bars ui-btn-b  ui-btn-icon-left"
+                data-transition="slide">Menú</a>
+        </header>
+        <div id="pgMovieCnt" data-role="content">
+            <h3>Películas</h3>
+            <ul id="listMovies" data-role="listview" data-inset="true" data-autodividers="true" data-filter="true"
+                data-filter-placeholder="Buscar películas">
+                <li data-role="list-divider">Tus películas</li>
+                <li id="noMovie">No dispones de películas</li>
+            </ul>
+        </div>
+        <footer data-role="footer" data-position="fixed" data-theme="b" class="center-wrapper">
+            <h1>Cuatrovientos</h1>
+        </footer>
+    </section>
+    <!-- end: Movie list -->
+
+    <!-- start: Create new movie -->
+    <section id="pgAddMovie" data-role="page">
+        <header data-role="header" data-theme="b">
+            <h1>Yo quiero ver eso</h1>
+            <a href="#pgMovieList" class="ui-btn ui-icon-carat-l ui-btn-icon-left ui-btn-a"
+                data-transition="flow">Volver</a>
+        </header>
+        <div class="ui-content" data-theme="a">
+
+            <div id="pgAddMovieCnt" data-role="content">
+                <h3>Añadir película</h3>
+                <form id="pgAddMovieForm">
+                    <div data-role="fieldcontain">
+                        <label for="pgAddMovieMovieName">Nombre película<span class='red'>*</span></label>
+                        <input required name="pgAddMovieMovieName" title="Introduce el nombre aquí." type="text"
+                            id="pgAddMovieMovieName" placeholder="Introduce el nombre aquí." autocomplete="off"
+                            data-clear-btn="true" />
+                    </div>
+                    <div data-role="fieldcontain">
+                        <label for="pgAddMovieMovieYear">Año película<span class='red'>*</span></label>
+                        <input required name="pgAddMovieMovieYear" title="Introduce el año aquí." type="text"
+                            id="pgAddMovieMovieYear" placeholder="Introduce el año aquí." autocomplete="off"
+                            data-clear-btn="true" />
+                    </div>
+                    <div data-role="fieldcontain">
+                        <label for="pgAddMovieMovieGenre">Género película<span class='red'>*</span></label>
+                        <input required name="pgAddMovieMovieGenre" title="Introduce el género aquí." type="text"
+                            id="pgAddMovieMovieGenre" placeholder="Introduce el género aquí." autocomplete="off"
+                            data-clear-btn="true" />
+                    </div>
+                    <div id="pgAddMovieFtr" data-role="controlgroup" data-type="horizontal">
+                        <a id="pgAddMovieSave" href="#"
+                            class="ui-btn ui-icon-action ui-btn-icon-left ui-btn-b">Guardar</a> 
+                        <a id="pgAddMovieBack" href="#pgMovieList"
+                            class="ui-btn ui-icon-back ui-btn-icon-left">Cancelar</a>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+        <footer data-role="footer" data-position="fixed" data-theme="b" class="center-wrapper">
+            <h1>Cuatrovientos</h1>
+        </footer>
+    </section>
+    <!-- end: Create new movie -->
+
+    <!-- start: Edit movie -->
+    <section data-url="MovieName" id="pgEditMovie" data-role="page">
+
+        <header id="pgEditMovieHdr" data-role="header" data-position="fixed" data-tap-toggle="false">
+            <h1>Yo quiero ver eso</h1>
+            <a href="#pgMovieList" class="ui-btn ui-icon-carat-l ui-btn-icon-left ui-btn-a"
+                data-transition="flow">Volver</a>
+        </header>
+        <div class="ui-content" data-theme="a">
+
+            <div id="pgEditMovieCnt" data-role="content">
+                <h3>Editar película</h3>
+                <form id="pgEditMovieForm">
+                    <div data-role="fieldcontain">
+                        <label for="pgEditMovieMovieName">Nombre película<span class='red'>*</span></label>
+                        <input required name="pgEditMovieMovieName" title="Introduce el nombre aquí." type="text"
+                            id="pgEditMovieMovieName" placeholder="Introduce el nombre aquí." autocomplete="off" />
+                    </div>
+                    <div data-role="fieldcontain">
+                        <label for="pgEditMovieMovieYear">Año película<span class='red'>*</span></label>
+                        <input required name="pgEdiMovieMovieYear" title="Introduce el año aquí." type="text"
+                            id="pgEditMovieMovieYear" placeholder="Introduce el año aquí." autocomplete="off"
+                            data-clear-btn="true" />
+                    </div>
+                    <div data-role="fieldcontain">
+                        <label for="pgEditMovieMovieGenre">Género película<span class='red'>*</span></label>
+                        <input required name="pgEditMovieMovieGenre" title="Introduce el género aquí." type="text"
+                            id="pgEditMovieMovieGenre" placeholder="Introduce el género aquí." autocomplete="off"
+                            data-clear-btn="true" />
+                    </div>
+                    <div id="pgEditMovieFtr" data-role="controlgroup" data-type="horizontal">
+                        <a id="pgEditMovieUpdate" href="#"
+                            class="ui-btn ui-icon-action ui-btn-icon-left ui-btn-b">Actualizar</a> 
+                        <a id="pgEditMovieDelete" href="#msgbox" data-rel="popup" data-position-to="window"
+                            data-transition="pop"
+                            class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-icon-delete ui-btn-icon-left ui-btn-b">Borrar</a>
+                        <a id="pgEditMovieBack" href="#pgMovieList"
+                            class="ui-btn ui-icon- ui-icon-check ui-btn-icon-left">Cancelar</a>
+                    </div>
+                </form>
+
+                <!-- start: Confirmation window -->
+                <div data-role="popup" id="msgbox" data-overlay-theme="a" data-dismissible="false"
+                    style="max-width:400px;">
+                        <div data-role="header" data-theme="a">
+                            <h1>Confirmar</h1>
+                            </div>
+                        <div role="main" class="ui-content">
+                                <h3 id="msgboxprompt" class="ui-title">¿Estas seguro de querer borrar el registro?</h3>
+                             <p>Esta operación no se puede deshacer.</p>
+                                <button id="msgboxyes"
+                            class="ui-btn ui-icon-check ui-btn-icon-left ui-shadow ui-corner-all"
+                            data-rel="back">Si</button>
+                                <button id="msgboxno"
+                            class="ui-btn ui-icon-back ui-btn-icon-left ui-shadow ui-corner-al ui-btn-b" data-rel="back"
+                            data-transition="flow">No</button>
+                            </div>
+                </div>
+                <!-- end: Confirmation window -->
+            </div>
+            <footer data-role="footer" data-position="fixed" data-theme="b" class="center-wrapper">
+                <h1>Cuatrovientos</h1>
+            </footer>
+    </section>
+    <!-- end: Edit movie   -->
+
+    <!-- 
+        // Versión 1 de la aplicación 
+    -->
+    <script src="app/app_v1.js"></script>
+     <!-- 
+        // Versión 2 de la aplicación 
+    <script src="app/movies/movie-add-view.js"></script>
+    <script src="app/movies/movie-add.js"></script>
+    <script src="app/movies/movie-edit-view.js"></script>
+    <script src="app/movies/movie-edit.js"></script>
+    <script src="app/movies/movie-delete-view.js"></script>
+    <script src="app/movies/movie-delete.js"></script>
+    <script src="app/movies/movie-show.js"></script>
+    <script src="app/movies/movie-view.js"></script>
+    <script src="app/movies/movie.js"></script>
+
+    <script src="app/movies/movie-module.js"></script>
+
+    <script src="app/database/persistence-manager.js"></script>
+    <script src="app/controller/movie-controller.js"></script>
+
+    <script src="app/app.js"></script>
+    -->
+
+</body>
+
+</html>
