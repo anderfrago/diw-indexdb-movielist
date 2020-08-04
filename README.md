@@ -10,6 +10,8 @@ Este ejemplo nos sirve para ver una primera versión de aplicación implementada
 ### app_v1.js **(_Abrir con Mozilla Firefox_)**
 
 En una primera versión de la aplicación se ve que todo el código esta en un único archivo, con las dificultades de mantenimiento que esto conlleva.
+_FUENTE:_
+Mbanga, A. ‘Mashy’ (2015) Create a CRUD Web App using JQuery Mobile IndexDB. Recuperado de: https://www.codeproject.com
 
 
 
